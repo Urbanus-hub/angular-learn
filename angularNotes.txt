@@ -102,6 +102,22 @@ If name changes to "Kioko", the view updates to:
 </app-user>
 Angular automatically updates the view when data changes.
 
+Imports in the @Component decorator
+To use a component, directive, or pipe, you must add it to the imports array in the @Component decorator:
+example;
+
+import {ProfilePhoto} from './profile-photo';
+@Component({
+  // Import the `ProfilePhoto` component in
+  // order to use it in this component's template.
+  imports: [ProfilePhoto],
+  /* ... */
+})
+
+export class UserProfile { }
+By default, Angular components are standalone, meaning that you can directly add them to the imports array of other components. Components created with an earlier version of Angular may instead specify standalone: false in their @Component decorator. For these components, you instead import the NgModule in which the component is defined.
+IMPORTANT: In Angular versions before 19.0.0, the standalone option defaults to false.
+
 4. The Component Tree: Your App is a Tree of Components
 In Angular, your application is structured as a tree of components.
 
@@ -124,6 +140,29 @@ Example:
 <app-article> and <app-comments> are nested inside <app-content>.
 This component-based architecture helps keep the code modular and reusable.
 
+You show a component by creating a matching HTML element in the template of other components:
+@Component({
+  selector: 'profile-photo',
+})
+export class ProfilePhoto { }
+@Component({
+  imports: [ProfilePhoto],
+  template: `<profile-photo />`//the imported element is rendered here
+})
+export class UserProfile { }
+Angular creates an instance of the component for every matching HTML element it encounters. The DOM element that matches a component's selector is referred to as that component's host element. The contents of a component's template are rendered inside its host element.
+
+The DOM rendered by a component, corresponding to that component's template, is called that component's view.
+
+In composing components in this way, you can think of your Angular application as a tree of components.
+Every component defines a CSS selector that determines how the component is used:
+You use a component by creating a matching HTML element in the templates of other components:
+Angular matches selectors statically at compile-time. Changing the DOM at run-time, either via Angular bindings or with DOM APIs, does not affect the components rendered.
+
+An element can match exactly one component selector. If multiple component selectors match a single element, Angular reports an error.
+
+Component selectors are case-sensitive.
+When Angular compiles your component,styles are emitted with your component's JavaScript output. This means that component styles participate in the JavaScript module system. When you render an Angular component, the framework automatically includes its associated styles, even when lazy-loading a component.
 Conclusion
 ✅ Angular creates a new instance of a component for each matching element in the HTML.
 ✅ The host element is the actual DOM element where the component's content is rendered.
