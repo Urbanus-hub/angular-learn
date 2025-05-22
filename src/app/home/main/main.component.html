@@ -1,0 +1,110 @@
+<!-- main.component.html -->
+<div class="container">
+  <!-- Header with welcome message -->
+  <header class="header">
+    <div class="welcome-message">
+      <h2>Welcome back, {{username}}!</h2>
+      <p>Discover the latest fashion trends and your personalized recommendations.</p>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, categories...">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+  </header>
+
+  <!-- Hero Banner Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>{{bannerMessage}}</h1>
+      <p>Discover our latest collections and refresh your wardrobe</p>
+      <button class="cta-button">Shop Now</button>
+    </div>
+  </div>
+
+  <!-- Hot Categories Section -->
+  <div class="hotCategories">
+    <div class="section-header">
+      <h2>Trending Categories</h2>
+      <a href="#" class="view-all">View All</a>
+    </div>
+    <div class="categories-grid">
+      <div class="category-card" *ngFor="let category of trendingCategories">
+        <div class="category-image">
+          <img [src]="category.image" [alt]="category.name">
+        </div>
+        <h3>{{category.name}}</h3>
+        <a [routerLink]="['/category', category.id]">Explore</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Products Section -->
+  <div class="featuredProducts">
+    <div class="section-header">
+      <h2>Featured Products</h2>
+      <a href="#" class="view-all">View All</a>
+    </div>
+    <div class="products-carousel">
+      <div class="product-card" *ngFor="let product of featuredProducts">
+        <div class="product-badge" *ngIf="product.discount">{{product.discount}}% OFF</div>
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+          <div class="quick-actions">
+            <button class="action-button"><i class="fas fa-heart"></i></button>
+            <button class="action-button"><i class="fas fa-shopping-cart"></i></button>
+            <button class="action-button"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>{{product.name}}</h3>
+          <p class="product-category">{{product.category}}</p>
+          <div class="product-price">
+            <span class="current-price">${{(product.discount ? (product.price * (100 - product.discount) / 100) : product.price).toFixed(2)}}</span>
+            <span class="original-price" *ngIf="product.discount">${{product.price.toFixed(2)}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- For You Section (Personalized Recommendations) -->
+  <div class="forYou">
+    <div class="section-header">
+      <h2>Recommended For You</h2>
+      <a href="#" class="view-all">View All</a>
+    </div>
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of recommendedProducts">
+        <div class="product-badge" *ngIf="product.discount">{{product.discount}}% OFF</div>
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+          <div class="quick-actions">
+            <button class="action-button"><i class="fas fa-heart"></i></button>
+            <button class="action-button"><i class="fas fa-shopping-cart"></i></button>
+            <button class="action-button"><i class="fas fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3>{{product.name}}</h3>
+          <p class="product-category">{{product.category}}</p>
+          <div class="product-price">
+            <span class="current-price">${{(product.discount ? (product.price * (100 - product.discount) / 100) : product.price).toFixed(2)}}</span>
+            <span class="original-price" *ngIf="product.discount">${{product.price.toFixed(2)}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Newsletter Subscription -->
+  <div class="newsletter">
+    <div class="newsletter-content">
+      <h2>Subscribe to our Newsletter</h2>
+      <p>Get the latest updates on new arrivals, special offers, and fashion news</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Your email address">
+        <button>Subscribe</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="header">
+  <div class="promotion">
+    <h3>Get free shipping for goods above $100</h3>
+    <i class="fa-solid fa-arrow-right arrow"></i>
+  </div>
+
+  <nav>
+    <ul>
+      <li>Home</li>
+      <li>Women</li>
+      <li>Men</li>
+      <li>Children</li>
+      <li>Refund</li>
+    </ul>
+    <div class="logo">
+      <img src="logo2.png" alt="" />
+    </div>
+    <div class="account-actions">
+      <div class="cart" (click)="closeCart(false)">
+        <i class="fa-solid fa-cart-shopping" ></i>
+        <div class="items-number">
+        <p>0</p>
+        </div>
+      </div>
+      <div class="wish">
+        <i class="fa-solid fa-heart"></i>
+      </div>
+      <div class="notification">
+        <i class="fa-solid fa-bell"></i>
+      </div>
+      <div class="settings">
+        <i class="fa-solid fa-gear"></i>
+      </div>
+      <div class="account">
+       <img src="user.png" alt="">
+      
+      </div>
+      
+    </div>
+  </nav>
+</div>
+<div class="cartModal" [ngClass]="{'close':active}">
+    <div class="close-cart">
+        <i class="fa-solid fa-xmark" (click)="closeCart(true)" ></i>
+    </div>
+   
+    <div class="cart-items">
+        <p>Your cart is empty</p>
+        <div class="item">
+
+        </div>
+    </div>
+   <div class="process-payment">
+   <button>checkout</button>
+   </div>
+</div>
+

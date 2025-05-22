@@ -1,0 +1,59 @@
+<!-- men.component.html -->
+<div class="children-ware">
+    <div class="header">
+      <h2>Children's Collection</h2>
+    </div>
+  
+    <div class="products-container">
+      <!-- Navigation buttons -->
+      <button 
+        class="nav-button prev" 
+        [ngClass]="{'disabled': !hasPrevPage()}"
+        (click)="prevPage()" 
+        [disabled]="!hasPrevPage()">
+        <span class="arrow">&#10094;</span>
+      </button>
+      
+      <!-- Loading spinner -->
+      <div class="loading-container" *ngIf="loading">
+        <div class="loading-spinner"></div>
+      </div>
+      
+      <!-- Products display -->
+      <div class="products" *ngIf="!loading">
+        <div class="product" *ngFor="let cloth of displayedProducts">
+          <div class="product-image">
+            <img [src]="cloth.images[0]" alt="{{ cloth.title }}">
+            <div class="product-overlay">
+              <button class="quick-view">Quick View</button>
+            </div>
+          </div>
+                  
+          <div class="details">
+            <h4>{{ cloth.title }}</h4>
+            <p class="category">{{ cloth.category.name }}</p>
+            <p class="price">${{ cloth.price }}</p>
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      
+      <button 
+        class="nav-button next" 
+        [ngClass]="{'disabled': !hasNextPage()}"
+        (click)="nextPage()" 
+        [disabled]="!hasNextPage()">
+        <span class="arrow">&#10095;</span>
+      </button>
+    </div>
+    
+    <!-- Pagination indicators -->
+    <div class="pagination-dots" *ngIf="ChildrenClothes.length > 0">
+      <span 
+        *ngFor="let _ of [].constructor(Math.ceil(ChildrenClothes.length / itemsPerPage)); let i = index" 
+        class="dot" 
+        [ngClass]="{'active': i === Math.floor(currentIndex / itemsPerPage)}"
+        (click)="currentIndex = i * itemsPerPage; updateDisplayedProducts()">
+      </span>
+    </div>
+  </div>

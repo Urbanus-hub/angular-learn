@@ -1,0 +1,274 @@
+.header {
+  position: relative;
+  width: 100vw;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ position: relative;
+ z-index: 4;
+ 
+}
+.arrow{
+  color: white !important;
+}
+
+.promotion {
+  width: 100vw;
+  position: relative;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  font-family: sans-serif !important;
+  padding: 10px;
+  color: #ffff;
+  background-color: #39523f;
+  overflow: hidden;
+  /* position:fixed;
+  top:0;
+  z-index:4; */
+}
+
+.promotion h3 {
+  font-size: 15px;
+  font-weight: lighter !important;
+}
+
+
+
+
+
+nav {
+  display: flex;
+  width: 100vw;
+  height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  margin-right: 50px;
+  /* border: 1px solid rgb(204, 203, 203); */
+  margin-left: 50px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  
+}
+ul {
+  display: flex;
+  width: 35%;
+  gap: 30px;
+  
+  justify-content: center;
+  height: 7vh;
+  align-items: center;
+}
+ul li{
+  transition: all .5s ease-in-out;
+}
+ul li:hover{
+cursor:pointer;
+transform:scale(1.2);
+}
+.logo {
+  display: flex;
+  width: 20%;
+  
+  justify-content: center;
+  height: 7vh;
+  align-items: center;
+}
+.logo img{
+  width:100px;
+  height: 90px;
+}
+
+.account-actions {
+  display: flex;
+  width: 40%;
+  align-items: center;
+  gap: 35px;
+  
+  justify-content: center;
+  height: 7vh;
+  align-items: center;
+}
+
+.account-actions button{
+    width: 90px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    font-size: 16px;
+
+}
+.fa-solid{
+    font-size: 30px;
+    color: grey;
+}
+.cart{
+  position: relative;
+  cursor: pointer;
+}
+.items-number{
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  border-radius: 50%;
+  text-align: center;
+  color: #ffff;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search{
+  width: 170px;
+  height: 40px;
+  display: flex;
+  position:relative;
+  align-items: center;
+  border-radius: 20px;
+}
+.fa-search{
+  font-size:15px;
+  position: absolute;
+  right: 7px;
+  
+}
+.search input{
+  position:aboslute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  outline:none;
+  border: none;
+  background-color: rgba(128, 128, 128, 0.532);
+}
+
+
+
+
+
+@keyframes rotateConic {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.cartModal {
+  position: fixed;
+  z-index: 4;
+  top: 100px;
+  right: 10px;
+  width: 30vw;
+  height: 80vh;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 1000;
+  transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* When 'active' is true (i.e. cart should be hidden) */
+.cartModal.close {
+  transform: translateX(120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Close button section */
+.close-cart {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Close icon */
+.fa-xmark {
+
+  font-size: 24px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #ff5252;
+}
+
+.fa-xmark:hover {
+  transform: rotate(90deg);
+  
+}
+
+/* Cart items container */
+.cart-items {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Checkout button container */
+.process-payment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Checkout button */
+.process-payment button {
+  width: 160px;
+  height: 45px;
+  background: linear-gradient(to right,#39523F);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-payment button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 114, 255, 0.5);
+}
+.cart-items p{
+  color: black;
+}
+
+
+.account img{
+width: 40px;
+height: 40px;
+border-radius: 50%;
+margin-left:100px ;
+}

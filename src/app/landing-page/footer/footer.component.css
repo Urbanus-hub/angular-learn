@@ -1,0 +1,270 @@
+.footer {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: #ffffff;
+  padding: 3rem 0 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  position: relative;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* Corrected pseudo-element styling */
+.header img::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  height: 100px;
+  width: 100px;
+  background-color: transparent;
+  border: 2px solid #4a90e2;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.company-description {
+  color: #cccccc;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 1.5rem;
+  padding-right: 2rem;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 40px;
+  background: #4a90e2;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  color: #4a90e2;
+}
+
+.contact-info p {
+  margin-bottom: 0.75rem;
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+.newsletter-form {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.email-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 0.9rem;
+}
+
+.subscribe-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0 1.25rem;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-btn:hover {
+  background-color: #357ad6;
+}
+
+/* Corrected social links section */
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  padding: 1rem 0;
+  width: 90%;
+  max-width: 500px;
+}
+
+.social {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+}
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.social-icon img{
+width: 40px;
+height: 40px; 
+position: relative;
+}
+/* .social-icon::before{
+  content:'';
+  width: 50px;
+  height: 50px;
+  position:absolute;
+  background-color: #00d0ff;
+ border-radius: 50%;
+ transition: all 0.2s ease-in-out;
+animation: rotate 0.6s ease-in infinite;
+} */
+@keyframes rotate{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+/* Corrected social hover text */
+.social p {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.social:hover p {
+  opacity: 1;
+  visibility: visible;
+  top: -40px;
+}
+
+.social-icon:hover {
+  background-color: #4a90e2;
+  transform: translateY(-3px);
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888888;
+  margin-top: 2rem;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+  
+  .footer-section {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+  
+  .email-input {
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subscribe-btn {
+    border-radius: 4px;
+    padding: 0.75rem;
+  }
+  
+  .social-links {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}

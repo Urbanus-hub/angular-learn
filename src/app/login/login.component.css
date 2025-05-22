@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+.login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+.form-container {
+  width: 70%;
+  max-width: 900px;
+  height: auto;
+  min-height: 500px;
+  background-color: #ffffff;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.welcome {
+  width: 45%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, #39523f, #1e392a);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../public/fashiongal.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.welcome img {
+  width: 60px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome p {
+  font-size: 1rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+form {
+  width: 55%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+form h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+form h3:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 4px;
+  background: #39523f;
+  border-radius: 2px;
+}
+
+.input-field {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 100%;
+  height: 38px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #39523f;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(57, 82, 63, 0.1);
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+}
+
+.remember input[type="checkbox"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  accent-color: #39523f;
+}
+
+.remember label {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.forgot {
+  color: #39523f;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: #39523f;
+  color: white;
+  border: none;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 25px;
+}
+
+button:hover {
+  background-color: #2d4132;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(57, 82, 63, 0.2);
+}
+
+.signup-link {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+.signup-link a {
+  color: #39523f;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+  transition: all 0.3s ease;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+  .form-container {
+    width: 90%;
+    flex-direction: column-reverse;
+  }
+  
+  form, .welcome {
+    width: 100%;
+  }
+  
+  .welcome {
+    padding: 30px;
+  }
+  
+  .welcome h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  form {
+    padding: 30px;
+  }
+}

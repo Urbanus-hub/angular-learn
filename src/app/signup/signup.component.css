@@ -1,0 +1,219 @@
+/* Modern styled signup page for DripLab */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+.signup {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+.form {
+  width: 70%;
+  max-width: 1000px;
+  height: auto;
+  min-height: 520px;
+  background-color: #ffffff;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+}
+
+.welcome {
+  width: 45%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg, #39523f, #1e392a);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../public/fashion.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.welcome h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome p {
+  font-size: 1rem;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
+}
+
+.welcome img {
+  width: 60px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+form {
+  width: 55%;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+form h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+form h3:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 60px;
+  height: 4px;
+  background: #39523f;
+  border-radius: 2px;
+}
+
+.names {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.input, .full {
+  margin-bottom: 15px;
+}
+
+.input {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  height: 38px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #39523f;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(57, 82, 63, 0.1);
+}
+
+button {
+  background-color: #39523f;
+  color: white;
+  border: none;
+  height: 40px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #2d4132;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(57, 82, 63, 0.2);
+}
+
+.login-option {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.login-option a {
+  color: #39523f;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-option a:hover {
+  color: #2d4132;
+  text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+  .form {
+    width: 90%;
+    flex-direction: column-reverse;
+  }
+  
+  form, .welcome {
+    width: 100%;
+  }
+  
+  .welcome {
+    padding: 30px;
+  }
+  
+  .welcome h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .names {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  form {
+    padding: 30px;
+  }
+}

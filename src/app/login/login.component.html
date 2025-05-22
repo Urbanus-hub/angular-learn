@@ -1,0 +1,38 @@
+<div class="login">
+  <div class="form-container">
+    <div class="welcome">
+      <img src="star.svg" alt="DripLab Star Logo">
+      <h2>Welcome Back</h2>
+      <p>Log in to access your DripLab account and continue your stylish journey. Discover new arrivals and exclusive collections waiting for you.</p>
+    </div>
+    
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      <h3>Sign In</h3>
+      
+      <div class="input-field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" ngModel required>
+      </div>
+      
+      <div class="input-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" ngModel required>
+      </div>
+      
+      <div class="options">
+        <div class="remember">
+          <input type="checkbox" id="remember" name="remember" ngModel>
+          <label for="remember">Remember me</label>
+        </div>
+        <a href="/forgot-password" class="forgot">Forgot password?</a>
+      </div>
+      
+      <button type="submit" (click)="toHome()">Log In</button>
+      
+      <div class="signup-link">
+        <span>Don't have an account?</span>
+        <a (click)="toSignUp()">Sign up</a>
+      </div>
+    </form>
+  </div>
+</div>
