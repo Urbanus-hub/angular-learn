@@ -1,28 +1,9 @@
 // men.component.ts
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener,inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FetchProductsService } from '../../fetch-products.service';
-
-interface Category {
-  id: number;
-  name: string;
-  slug: string;
-  image: string;
-  creationAt: string;
-  updatedAt: string;
-}
-
-interface Product {
-  id: number;
-  title: string;
-  slug: string;
-  price: number;
-  description: string;
-  category: Category;
-  images: string[];
-  creationAt: string;
-  updatedAt: string;
-}
+import { FetchProductsService } from '../../../services/fetch-products.service';
+import { Product } from '../../../models/productModel';
+import { CartServiceService } from '../../../services/cart-service.service';
 
 @Component({
   selector: 'app-men',
@@ -39,6 +20,21 @@ export class MenComponent {
   currentIndex = 0;
   itemsPerPage = 4; // Default, will be updated based on screen size
   loading = true;
+  cartservice=inject(CartServiceService);
+  
+  cartProducts=this.cartservice.cartProducts;
+   cartProductsNumber=this.cartservice.count;
+ addCart(id: number) {
+  const product = this.menClothes.find((prod) => prod.id === id);
+  if (!product) {
+    console.log("Product not found");
+    return;
+  }
+  console.log("found the product", product);
+  this.cartservice.addToCart(product);
+  console.log(this.cartProducts())
+  console.log(this.cartProductsNumber())
+}
   like(bool:boolean,prodId:number){
 this.love=bool;
 this.id.push(prodId);

@@ -2,29 +2,9 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FetchProductsService } from '../../fetch-products.service';
+import { FetchProductsService } from '../../../services/fetch-products.service';
 
-interface Category {
-  id: number;
-  name: string;
-  slug: string;
-  image: string;
-  creationAt: string;
-  updatedAt: string;
-}
-
-interface Product {
-  id: number;
-  title: string;
-  slug: string;
-  price: number;
-  description: string;
-  category: Category;
-  images: string[];
-  creationAt: string;
-  updatedAt: string;
-}
-
+import { Product } from '../../../models/productModel';
 @Component({
   selector: 'app-women',
   imports: [CommonModule],

@@ -82,6 +82,10 @@ body {
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
+  background-position:center;
+  background-size: cover;
+  background-repeat: no no-repeat;
+  object-fit: contain;
 }
 
 form {

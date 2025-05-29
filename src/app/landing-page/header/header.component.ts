@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { RouterLink,RouterLinkActive } from '@angular/router';
 import { Router } from '@angular/router';
+import { CartServiceService } from '../../../services/cart-service.service';
+import { FetchProductsService } from '../../../services/fetch-products.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +13,14 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  constructor(private router:Router){
+  cartservice=inject(CartServiceService);
+  fetchProducts=inject(FetchProductsService);
+  cartProducts=this.cartservice.cartProducts;
+  productNumber=this.cartservice.count;
+ 
+  router=inject(Router);
 
-  }
+
   active:boolean=true;
   love:boolean=false;
 closeCart(bool:boolean){

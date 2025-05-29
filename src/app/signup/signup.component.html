@@ -42,7 +42,7 @@
         <input type="text" id="address" name="address" ngModel required>
       </div>
       
-      <button type="submit">Create Account</button>
+      <button type="submit" [disabled]="signupForm.invalid">Create Account</button>
       
       <div class="login-option">
         <p>Already have an account? <a (click)="navigateToLogin()">Log in</a></p>

@@ -35,7 +35,7 @@
             <h4>{{ cloth.title }}</h4>
             <p class="category">{{ cloth.category.name }}</p>
             <p class="price">${{ cloth.price }}</p>
-            <button class="add-to-cart">Add to Cart</button>
+            <button class="add-to-cart" (click)="addCart(cloth.id)">Add to Cart</button>
           </div>
         </div>
       </div>

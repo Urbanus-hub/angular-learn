@@ -1,7 +1,7 @@
 // men.component.ts
 import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FetchProductsService } from '../../fetch-products.service';
+import { FetchProductsService } from '../../../services/fetch-products.service';
 
 interface Category {
   id: number;
