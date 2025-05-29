@@ -1,7 +1,8 @@
 // men.component.ts
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener,inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FetchProductsService } from '../../../services/fetch-products.service';
+import { CartServiceService } from '../../../services/cart-service.service';
 
 interface Category {
   id: number;
@@ -48,7 +49,21 @@ export class ChildrenComponent {
       this.loading = false;
     });
   }
-
+ cartservice=inject(CartServiceService);
+  
+  cartProducts=this.cartservice.cartProducts;
+   cartProductsNumber=this.cartservice.count;
+ addCart(id: number) {
+  const product = this.ChildrenClothes.find((prod) => prod.id === id);
+  if (!product) {
+    console.log("Product not found");
+    return;
+  }
+  console.log("found the product", product);
+  this.cartservice.addToCart(product);
+  console.log(this.cartProducts())
+  console.log(this.cartProductsNumber())
+}
   @HostListener('window:resize')
   onResize() {
     this.calculateItemsPerPage();

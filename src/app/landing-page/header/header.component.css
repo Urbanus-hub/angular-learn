@@ -171,7 +171,7 @@ transform:scale(1.2);
   height: 80vh;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -216,21 +216,7 @@ transform:scale(1.2);
 }
 
 /* Cart items container */
-.cart-items {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  flex: 1;
-  border: 1px dashed rgba(255, 255, 255, 0.3);
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: 500;
-}
+
 
 /* Checkout button container */
 .process-payment {
@@ -260,8 +246,200 @@ transform:scale(1.2);
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(0, 114, 255, 0.5);
 }
-.cart-items p{
-  color: black;
+/* Cart items container - updated */
+.cart-items {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  flex: 1;
+ 
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+/* Empty cart message */
+.cart-items p {
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin: auto;
+  font-size: 16px;
+}
+
+/* Individual cart item */
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  gap: 12px;
+  
+}
+
+
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+/* Product image */
+.item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+/* Product description */
+.description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 12px;
+}
+
+.description p {
+  margin: 0;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.description p:first-child {
+  font-weight: 600;
+  font-size: 15px;
+  color: #000000;
+}
+
+.description p:last-child {
+  font-weight: 500;
+  color: #000000;
+  font-size: 14px;
+}
+
+/* Quantity controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.quantity-controls span {
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  user-select: none;
+  min-width: 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-controls span:first-child,
+.quantity-controls span:last-child {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.quantity-controls span:first-child:hover,
+.quantity-controls span:last-child:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.quantity-controls span:nth-child(2) {
+  color: #ffffff;
+  font-weight: 500;
+  min-width: 30px;
+}
+
+/* Scrollbar styling for cart items */
+.cart-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.cart-items::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Animation for new items */
+@keyframes slideInItem {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.item {
+  animation: slideInItem 0.4s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cartModal {
+    width: 90vw;
+    right: 5vw;
+  }
+  
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .item img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .description {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .quantity-controls {
+    align-self: flex-end;
+  }
 }
 
 

@@ -1,10 +1,11 @@
 // men.component.ts
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener,inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FetchProductsService } from '../../../services/fetch-products.service';
 
 import { Product } from '../../../models/productModel';
+import { CartServiceService } from '../../../services/cart-service.service';
 @Component({
   selector: 'app-women',
   imports: [CommonModule],
@@ -48,7 +49,21 @@ export class WomenComponent {
       this.itemsPerPage = 4;
     }
   }
-
+ cartservice=inject(CartServiceService);
+  
+  cartProducts=this.cartservice.cartProducts;
+   cartProductsNumber=this.cartservice.count;
+ addCart(id: number) {
+  const product = this.womenClothes.find((prod) => prod.id === id);
+  if (!product) {
+    console.log("Product not found");
+    return;
+  }
+  console.log("found the product", product);
+  this.cartservice.addToCart(product);
+  console.log(this.cartProducts())
+  console.log(this.cartProductsNumber())
+}
   updateDisplayedProducts() {
     const end = Math.min(this.currentIndex + this.itemsPerPage, this.womenClothes.length);
     this.displayedProducts = this.womenClothes.slice(this.currentIndex, end);

@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule,Router } from '@angular/router';
 import { RouterLink,RouterLinkActive } from '@angular/router';
-import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { CartServiceService } from '../../../services/cart-service.service';
 import { FetchProductsService } from '../../../services/fetch-products.service';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule,FormsModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

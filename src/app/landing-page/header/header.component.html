@@ -20,9 +20,9 @@
         <i class="fa-solid fa-search"></i>
       </div>
       <div class="cart" (click)="closeCart(false)">
-        <i class="fa-solid fa-cart-shopping" ></i>
+        <i class="fa-solid fa-cart-shopping"></i>
         <div class="items-number">
-        <p>{{productNumber()}}</p>
+          <p>{{ productNumber() }}</p>
         </div>
       </div>
       <div class="wish">
@@ -33,18 +33,32 @@
     </div>
   </nav>
 </div>
-<div class="cartModal" [ngClass]="{'close':active}">
-    <div class="close-cart">
-        <i class="fa-solid fa-xmark" (click)="closeCart(true)" ></i>
-    </div>
-   
-    <div class="cart-items">
-        <p>Your cart is empty</p>
-        <div class="item">
+<div class="cartModal" [ngClass]="{ close: active }">
+  <div class="close-cart">
+    <i class="fa-solid fa-xmark" (click)="closeCart(true)"></i>
+  </div>
 
-        </div>
+  <div class="cart-items">
+    @if(productNumber()===0){
+    <p style="color:black;">Your cart is empty</p>
+    } 
+
+    <div class="item" *ngFor="let product of cartProducts()">
+      <img [src]="product.images[0]" alt="" />
+      <div class="description">
+        <p>{{ product.title}}</p>
+        <p>{{ product.price }}</p>
+      </div>
+      <div class="quantity-controls">
+        <span>-</span>
+        <span>{{ 1 }}</span>
+        <span>+</span>
+      </div>
     </div>
-   <div class="process-payment">
-   <button>checkout</button>
-   </div>
+
+    
+  </div>
+  <div class="process-payment">
+    <button>checkout</button>
+  </div>
 </div>
