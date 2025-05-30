@@ -42,9 +42,10 @@
     @if(productNumber()===0){
     <p style="color:black;">Your cart is empty</p>
     } 
-
-    <div class="item" *ngFor="let product of cartProducts()">
+    @else {
+<div class="item" *ngFor="let product of cartProducts()">
       <img [src]="product.images[0]" alt="" />
+      <span class="removeItem" (click)="this.cartservice.removeFromCart(product.id)">x</span>
       <div class="description">
         <p>{{ product.title}}</p>
         <p>${{ product.price }}</p>
@@ -55,10 +56,17 @@
         <span (click)="increase(product.id)">+</span>
       </div>
     </div>
-
+ 
+    }
+    
     
   </div>
+  <div class="order-summary">
+  <h2>Order summary</h2>
+  <p>Total cost : ${{this.cartservice.totalPrice()}}</p>
+
+ </div>
   <div class="process-payment">
-    <button>checkout</button>
+    <button (click)='logIn()'>checkout</button>
   </div>
 </div>

@@ -7,7 +7,12 @@ import { Product } from '../models/productModel';
 export class CartServiceService {
   cartProducts = signal<Product[]>([]);
   count = computed(() => this.cartProducts().length);
-
+  totalPrice = computed(() => {
+  return this.cartProducts().reduce((total, product) => {
+    const quantity = product.quantity || 1;
+    return total + (product.price * quantity);
+  }, 0);
+});
   addToCart(cartProduct: Product) {
     const exists = this.cartProducts().find(p => p.id === cartProduct.id);
     
