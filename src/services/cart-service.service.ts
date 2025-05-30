@@ -13,7 +13,7 @@ export class CartServiceService {
     
     if (!exists) {
       // Use set() to update the signal with a new array
-      this.cartProducts.set([...this.cartProducts(), cartProduct]);
+      this.cartProducts.set([...this.cartProducts(), {...cartProduct,quantity:1}]);
     }
   }
 

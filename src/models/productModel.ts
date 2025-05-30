@@ -8,6 +8,7 @@ export interface Category {
 }
 
 export interface Product {
+  quantity?:number;
   id: number;
   title: string;
   slug: string;

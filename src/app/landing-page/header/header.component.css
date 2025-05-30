@@ -324,12 +324,12 @@ transform:scale(1.2);
 .description p:first-child {
   font-weight: 600;
   font-size: 15px;
-  color: #000000;
+  color: #ffffff;
 }
 
 .description p:last-child {
   font-weight: 500;
-  color: #000000;
+  color: #ffffff;
   font-size: 14px;
 }
 

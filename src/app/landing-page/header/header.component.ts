@@ -17,12 +17,10 @@ export class HeaderComponent {
   fetchProducts=inject(FetchProductsService);
   cartProducts=this.cartservice.cartProducts;
   productNumber=this.cartservice.count;
- 
   router=inject(Router);
-
-
   active:boolean=true;
   love:boolean=false;
+  count:number=1;
 closeCart(bool:boolean){
  this.active=bool;
  console.log(this.active)
@@ -33,5 +31,33 @@ this.router.navigate(['/signup']);
 logIn():void{
 this.router.navigate(['/login']);
 }
+// Remove invalid forEach and define methods as class methods
+increase(id: number): void {
+  this.cartProducts.update(products => 
+    products.map(product => {
+      if (product.id === id) {
+        const currentQuantity = (product as any).quantity || 1;
+        return { ...product, quantity: currentQuantity + 1 };
+      }
+      return product;
+    })
+  );
+}
+decrease(id: number): void {
+  this.cartProducts.update(products => 
+    products.map(product => {
+      if (product.id === id) {
+        const currentQuantity = (product as any).quantity || 1;
+        if (currentQuantity > 1) {
+          return { ...product, quantity: currentQuantity - 1 };
+        }
+      }
+      return product;
+    })
+  );
+}
+
+
+
 
 }

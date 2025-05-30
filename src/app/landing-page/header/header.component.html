@@ -47,12 +47,12 @@
       <img [src]="product.images[0]" alt="" />
       <div class="description">
         <p>{{ product.title}}</p>
-        <p>{{ product.price }}</p>
+        <p>${{ product.price }}</p>
       </div>
       <div class="quantity-controls">
-        <span>-</span>
-        <span>{{ 1 }}</span>
-        <span>+</span>
+        <span (click)="decrease(product.id)">-</span>
+        <span>{{ product.quantity }}</span>
+        <span (click)="increase(product.id)">+</span>
       </div>
     </div>
 

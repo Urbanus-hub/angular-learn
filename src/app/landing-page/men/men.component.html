@@ -22,8 +22,7 @@
       <!-- Products display -->
       <div class="products" *ngIf="!loading">
         <div class="product" *ngFor="let cloth of displayedProducts">
-          <img  src="heart.svg" alt="like" class="like" (click)="like(true,cloth.id)" >
-           <img *ngIf="love && id.includes(cloth.id)" src="redheart.svg" alt="like" class="like" (click)="unLike(false,cloth.id)" >
+          
           <div class="product-image">
             <img [src]="cloth.images[0]" alt="{{ cloth.title }}">
             <div class="product-overlay">
