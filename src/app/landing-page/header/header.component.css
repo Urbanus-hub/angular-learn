@@ -427,11 +427,15 @@ transform:scale(1.2);
   padding: 30px;
   background-color: rgba(255, 255, 255, 0.57);
   border-radius: 10px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.415);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.115);
   border: 2px solid rgba(0, 0, 0, 0.196);
+  transition:all 0.71s ease-in;
 }
 .order-summary P{
   color: black;
+}
+.order-summary:hover{
+  transform:scale(1.02);
 }
 /* Animation for new items */
 @keyframes slideInItem {
